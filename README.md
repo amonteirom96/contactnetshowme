@@ -1,11 +1,13 @@
-## Project only for send message of contact to Netshoeme
+## Project only for send message of contact to Netshowme
 
 ### What you need have for use this project?
 - Postgres database installed your computer
 - PHP 5.6 +
 
 ### What you need for initialize this project?
-- Open your terminal in root and execute this command ( This command will go create the database, table and columns in your database postgres):
+- Create database with the name 'contactnetshowme'
+- Configure your configurations of database in file 'database.ini' in root project.
+- Open your terminal in root and execute this command ( This command will go create the table and columns in your database postgres):
 $ php init.php 
 
 
