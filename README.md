@@ -9,11 +9,13 @@
 - Configure your configurations of database in file 'database.ini' in root project.
 - Open your terminal in root and execute this command ( This command will go create the table and columns in your database postgres):
 - $ php init.php 
+- $ composer install
 
 
 ### Technologies/Frameworks used
 - Bootstrap 4.0
 - jQuery 3.x
+- PHPmailer
 
 ### What does this project do?
 - Just only save in database the message of contact by user client, then send mail of confirmation to client.

@@ -1,10 +1,5 @@
 
 (function ($) {
-    "use strict";
-
-
-    /*==================================================================
-    [ Validate after type ]*/
     $('.validate-input .input100').each(function () {
         $(this).on('blur', function () {
             if (validate(this) == false) {
@@ -17,8 +12,6 @@
     })
 
 
-    /*==================================================================
-    [ Validate ]*/
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit', function () {
@@ -80,3 +73,5 @@
 
 
 })(jQuery);
+
+$(`[name='phone']`).mask(`(99) 9 9999-9999`);

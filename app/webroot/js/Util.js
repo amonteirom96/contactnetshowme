@@ -2,11 +2,5 @@ class Util {
     constructor() {
 
     }
-
-    maskPhone(phone = "") {
-        if(phone == "")
-            return phone;
-
-        
-    }
 }
+const AppUtil = new Util();

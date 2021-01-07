@@ -17,12 +17,12 @@
 
                 <div class="wrap-input100 validate-input bg1" data-validate="Por favor, preencha seu nome">
                     <span class="label-input100">NOMEC COMPLETO *</span>
-                    <input class="input100" type="text" name="name" value="a" placeholder="Digite seu nome completo">
+                    <input class="input100" type="text" name="name" value="Arthur Monteiro" placeholder="Digite seu nome completo">
                 </div>
 
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Preencha seu email (e@a.x)">
                     <span class="label-input100">E-mail *</span>
-                    <input class="input100" type="text" name="email" value="a@a.com" placeholder="Preencha seu email ">
+                    <input class="input100" type="text" name="email" value="amonteirom96@gmail.com" placeholder="Preencha seu email ">
                 </div>
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">

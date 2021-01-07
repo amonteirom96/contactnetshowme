@@ -18,15 +18,15 @@ try {
             "text/plain",
         ];
 
-        if(!in_array($_FILES["file"]["type"], $mimeTypesFiles))
+        if (!in_array($_FILES["file"]["type"], $mimeTypesFiles))
             throw new Exception("Tipo de arquivo não permitido");
 
         $extesionFile = new SplFileInfo($_FILES['file']['name']);
-        $newNameFile = uniqid(). "." .$extesionFile->getExtension(); 
-        $locationSaveFile = $_SERVER['DOCUMENT_ROOT']."/contactnetshowme/tmp/files/";
-        $saveFileLocal = @move_uploaded_file($_FILES['file']['tmp_name'], $locationSaveFile.$newNameFile);
+        $newNameFile = uniqid() . "." . $extesionFile->getExtension();
+        $locationSaveFile = $_SERVER['DOCUMENT_ROOT'] . "/contactnetshowme/tmp/files/";
+        $saveFileLocal = @move_uploaded_file($_FILES['file']['tmp_name'], $locationSaveFile . $newNameFile);
 
-        if(!$saveFileLocal)
+        if (!$saveFileLocal)
             throw new Exception("Falha ao salvar arquivo local");
 
         $_POST["file"] = $newNameFile;
@@ -60,6 +60,31 @@ try {
             }
         }
     }
+    function bodyMail()
+    {
+        $html = "<h2>Olá, você recebeu um novo email</h2>";
+        $html .= "<div>";
+        $html .= "<p>";
+        $html .= "Nome: " . $_POST['name'];
+        $html .= "</p>";
+        $html .= "<p>";
+        $html .= "Email: " . $_POST['email'];
+        $html .= "</p>";
+        $html .= "<p>";
+        $html .= "Telefone: " . $_POST['phone'];
+        $html .= "</p>";
+        $html .= "<p>";
+        $html .= "IP: " . $_POST['clientIp'];
+        $html .= "</p>";
+        $html .= "<p>";
+        $html .= "Mensagem: " . $_POST['message'];
+        $html .= "</p>";
+        $html .= "<small>";
+        $html .= "(O arquivo segue em anexo desse email)";
+        $html .= "</small>";
+        $html .= "</div>";
+        return $html;
+    }
 
     function createSqlSave()
     {
@@ -87,13 +112,8 @@ try {
         return preg_replace('/[^[:alpha:]_]/', '', $text);
     }
 
-    function sendMailForClient()
-    {
-
-    }
-
     validateForm();
-    
+
     $sqlCreate = createSqlSave();
     $stmt = $pdo->prepare($sqlCreate);
     $stmt->bindValue(':name', $_POST["name"]);
@@ -104,10 +124,20 @@ try {
     $stmt->bindValue(':message', $_POST["message"]);
     $create = $stmt->execute();
 
-    if(!$create)
+    if (!$create)
         throw new Exception("Falha ao salvar o contato");
 
-    sendMailForClient();
+
+    $mail->Subject = "Olá, você recebeu um novo email de contato.";
+    $bodyMail = bodyMail();
+    $mail->Body = $bodyMail;
+    $mail->AddAttachment(
+        $_SERVER['DOCUMENT_ROOT'] . "/contactnetshowme/tmp/files/" . $_POST["file"],
+        $_FILES['file']['name']
+    );
+
+    if (!$mail->Send())
+        throw new Exception("Falha ao enviar email para o suporte.");
 } catch (\Exception $e) {
     $jsonReturn["status"] = false;
     $jsonReturn["message"] = $e->getMessage();

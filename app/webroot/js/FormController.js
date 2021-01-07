@@ -24,7 +24,12 @@ class FormController extends Util {
                     cache: false,
                     contentType: false,
                     processData: false,
-                    data : form
+                    data: form
+                }).done(function (response) {
+                    alert(response.message)
+
+                    if (response.status)
+                        $(':input').val('');
                 });
             }
 
@@ -38,12 +43,12 @@ class FormController extends Util {
         return new Promise((resolve, reject) => {
             if (file.size > self.maxFileSize)
                 reject(false);
-            else{
+            else {
                 $.ajax({
-                    url : `https://api.ipify.org/?format=json`,
+                    url: `https://api.ipify.org/?format=json`,
                     type: `get`,
-                    dataType : `json`
-                }).done(function(response){
+                    dataType: `json`
+                }).done(function (response) {
                     self.clientIp = response.ip;
                     resolve(true);
                 })
