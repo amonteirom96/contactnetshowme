@@ -8,7 +8,7 @@
 - Create database with the name 'contactnetshowme'
 - Configure your configurations of database in file 'database.ini' in root project.
 - Open your terminal in root and execute this command ( This command will go create the table and columns in your database postgres):
-$ php init.php 
+- $ php init.php 
 
 
 ### Technologies/Frameworks used
@@ -19,4 +19,4 @@ $ php init.php
 - Just only save in database the message of contact by user client, then send mail of confirmation to client.
 
 ### Project's goal
-- The object this project is for a technical test to prove my knowledge with the PHP language and Javascript language
+- The object this project is for a basic technical test to prove my knowledge with the PHP language and Javascript language
