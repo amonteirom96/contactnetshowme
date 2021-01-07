@@ -17,12 +17,12 @@
 
                 <div class="wrap-input100 validate-input bg1" data-validate="Por favor, preencha seu nome">
                     <span class="label-input100">NOMEC COMPLETO *</span>
-                    <input class="input100" type="text" name="name" value="Arthur Monteiro" placeholder="Digite seu nome completo">
+                    <input class="input100" type="text" name="name" value="" placeholder="Digite seu nome completo">
                 </div>
 
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Preencha seu email (e@a.x)">
                     <span class="label-input100">E-mail *</span>
-                    <input class="input100" type="text" name="email" value="amonteirom96@gmail.com" placeholder="Preencha seu email ">
+                    <input class="input100" type="text" name="email" value="" placeholder="Preencha seu email ">
                 </div>
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Por favor, nos diga algo.">
                     <span class="label-input100">Mensagem</span>
-                    <textarea class="input100" name="message" placeholder="Agora me conta tudo que você tem pra falar...">as</textarea>
+                    <textarea class="input100" name="message" placeholder="Agora me conta tudo que você tem pra falar..."></textarea>
                 </div>
 
                 <div class="container-contact100-form-btn">
