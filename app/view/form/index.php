@@ -32,7 +32,7 @@
 
                 <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Precisamos de um arquivo">
                     <span class="label-input100">ARQUIVO</span>
-                    <input type="file" class="input100" name="" id="file-contact">
+                    <input type="file" class="input100" accept="application/pdf, application/msword, application/vnd.oasis.opendocument.text, text/plain" name="" id="file-contact">
                 </div>
                 <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Por favor, nos diga algo.">
                     <span class="label-input100">Mensagem</span>
